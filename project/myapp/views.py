@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, Http404
 from .models import User
 
 
 def users_list(request):
-    if request.GET:
-        print(request.GET['name'])
+    if request.GET['age'] != '25':
+        raise Http404()
     users = User.objects.all()
     return render(request, 'myapp/index.html', context={'users': users})
 
