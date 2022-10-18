@@ -3,4 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('', users_list),
+    path('test/', check_name),
 ]
